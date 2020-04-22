@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from website.views import welcome, time, about
+from meetings.views import detail
 
 urlpatterns = [
     path('admin/', admin.site.urls), # the first argument specify the url, the second one is the actual function
     path('', welcome), # If we want to make the mian page just leave the first argument empty
     path('time', time),
     path('about', about),
+    path('meetings/<int:id>', detail),
 ]

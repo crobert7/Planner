@@ -1,11 +1,14 @@
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
+from meetings.models import Meeting
 
 # Create your views here.
 
-def welcome(response):
-    return HttpResponse("Welcome to the meeting planner!")
+def welcome(request):
+    # return HttpResponse("Welcome to the meeting planner!")
+    return render(request, "website/welcome.html",
+                  {"num_meettings": Meeting.objects.count()})
 
 def time(request):
     return HttpResponse("This page was served at " + str(datetime.now()))

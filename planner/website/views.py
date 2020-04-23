@@ -8,7 +8,7 @@ from meetings.models import Meeting
 def welcome(request):
     # return HttpResponse("Welcome to the meeting planner!")
     return render(request, "website/welcome.html",
-                  {"num_meettings": Meeting.objects.count()})
+                  {"meetings": Meeting.objects.all()})
 
 def time(request):
     return HttpResponse("This page was served at " + str(datetime.now()))
